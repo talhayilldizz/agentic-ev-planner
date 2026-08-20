@@ -12,5 +12,6 @@ sse-starlette
 sqlalchemy
 langchain-community>=0.2.10
 ddgs
+slowapi
 
 

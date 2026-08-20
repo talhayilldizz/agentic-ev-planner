@@ -4,8 +4,8 @@ import ReactMarkdown from 'react-markdown';
 import EVRouteMap from './components/EVRouteMap';
 import './index.css';
 
-// Random session ID so each tab refresh gets a new memory context in backend
-const SESSION_ID = Math.random().toString(36).substring(7);
+// Generate a secure UUID for session ID to prevent IDOR and collisions
+const SESSION_ID = crypto.randomUUID();
 
 function App() {
   const [messages, setMessages] = useState([

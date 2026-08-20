@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+langchain
+langgraph
+langchain-openai
+langchain-google-genai
+pandas
+pydantic
+python-dotenv
+requests
+sse-starlette
+sqlalchemy
+langchain-community>=0.2.10
+ddgs
+
+

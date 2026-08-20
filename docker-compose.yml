@@ -1,0 +1,30 @@
+
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: ev_agent_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    env_file:
+      - .env
+    environment:
+      - DATA_DIR=/app/data
+      - WATCHFILES_FORCE_POLLING=true
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: ev_agent_frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - backend
